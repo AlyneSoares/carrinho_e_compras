@@ -7,9 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"src/test/resources/org/alyne/soares/features/BuySnacksAndDrinks.feature"},
         strict = false, plugin = {"pretty",
-        "html:target/reports"}
-      //  glue = {"com.automatedtest.sample.infrastructure.driver",
-      //          "com.automatedtest.sample.homepage"}
+        "html:target/reports" }     
       )
 public class RunFeatureBuySnacksAndDrinks {
 }

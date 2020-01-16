@@ -1,5 +1,6 @@
 Feature: Buy Candies
 
+@candies
 Scenario: Buy Brigadeiros and Alfajor
 
 Given I navigate to ShopCart-4all

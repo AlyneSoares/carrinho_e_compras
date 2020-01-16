@@ -1,0 +1,28 @@
+## Steps to run the test:
+
+### Required:
+You need JAVA JDK with maven, Selenium, Cucumber and WebDrivers (ChromeDriver, GeckoDriver, EdgeDriver) installed.
+
+### Run tests:
+Open 'prova_4all' in your terminal and type: 
+Run test: `mvn test`
+it will run all tests (runner: `$ RunCucumberTest.java`)
+
+To run specific tests, go to the Runners and click `Run`
+To run 'BuyCandies' feature:
+`$ RunFeatureBuyCandies.java`
+
+To run 'BuySnacksAndDrinks' feature:
+`$ RunFeatureBuySnacksAndDrinks.java`
+
+Run parallel tests:
+- Go to Maven Projects > prova_4all > plugins > surefire > surefire:test (click)
+
+
+By default, tests will run on Chrome. 
+To change that, specify:
+` -Dbrowser={browser}` where {browser} is either chrome, edge or firefox
+
+### Reports
+Go to the folder `target/reports` open file `index.html`  to see the test report
+

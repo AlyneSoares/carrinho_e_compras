@@ -11,15 +11,15 @@ public class SetUp {
 
     public static WebDriver driver;
 
-    public void setWebDriver(String browser) throws Exception {
+    public void setWebDriver() throws Exception {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Alyne_Soares\\source\\Workspaces\\chromedriver.exe");
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Alyne_Soares\\source\\Workspaces\\geckodriver.exe");
         System.setProperty("webdriver.edge.driver", "C:\\Users\\Alyne_Soares\\source\\Workspaces\\msedgedriver.exe");
 
-        // String browser = System.getProperty("browser");
-        // if (browser == null) {
-        //     browser = "chrome";
-        // }
+        String browser = System.getProperty("browser");
+        if (browser == null) {
+             browser = "chrome";
+        }
         switch (browser) {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();

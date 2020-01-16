@@ -1,19 +1,20 @@
 package org.alyne.soares.steps;
-import org.alyne.soares.infrastructure.SetUp;
 
+import org.alyne.soares.infrastructure.SetUp;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.junit.Assert.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 
+import java.io.File;
+import java.io.IOException;
 
 import org.alyne.soares.pageObjects.HomePage;
+import org.apache.commons.io.FileUtils;
 import org.alyne.soares.pageObjects.CartContentPage;
-
 
 public class StepDefinitions {
     private final WebDriver driver;
@@ -23,7 +24,7 @@ public class StepDefinitions {
 
     public StepDefinitions() throws Exception {
         setup = new SetUp();
-        setup.setWebDriver("chrome");
+        setup.setWebDriver();
         driver = SetUp.driver;
         homePage = new HomePage(driver);
         cartPage = new CartContentPage(driver);
@@ -77,7 +78,11 @@ public class StepDefinitions {
     }
 
     @Then("I purchase the candies")
-    public void i_purchase_the_candies() {
+    public void i_purchase_the_candies() throws Exception {
+        TakesScreenshot candyCart =((TakesScreenshot)driver);
+        File CandyCart = candyCart.getScreenshotAs(OutputType.FILE);   
+        File DestFile = new File("C:\\Users\\Alyne_Soares\\source\\Workspaces\\prova_4all\\prova_4all\\target\\reports\\candyCart.jpg"); 
+        FileUtils.copyFile(CandyCart, DestFile);
         cartPage.clickCheckOut();
         assertEquals("Pedido realizado com sucesso!", cartPage.modalMessage());
         cartPage.closeConfirmationModal();
@@ -85,14 +90,17 @@ public class StepDefinitions {
     }
 
     @Then("I confirm the total value of my cart")
-    public void i_confirm_total_value_of_my_cart() {
+    public void i_confirm_total_value_of_my_cart() throws Exception {
+        TakesScreenshot fullCart =((TakesScreenshot)driver);
+        File FullCart = fullCart.getScreenshotAs(OutputType.FILE);
+        File DestFile = new File("C:\\Users\\Alyne_Soares\\source\\Workspaces\\prova_4all\\prova_4all\\target\\reports\\fullCart.jpg");
+        FileUtils.copyFile(FullCart, DestFile);
         final Double productsSum = cartPage.cokeTotalPrice() + cartPage.fantaTotalPrice() + cartPage.aguaTotalPrice()
                 + cartPage.rissoleTotalPrice();
         assertEquals(new Double (cartPage.totalPrice()), new Double (productsSum));
         cartPage.clickCheckOut();
         assertEquals("Pedido realizado com sucesso!", cartPage.modalMessage());        
         cartPage.closeConfirmationModal();
-        homePage.closeBrowser();
         homePage.closeBrowser();
     }
 
