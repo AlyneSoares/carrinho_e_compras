@@ -12,9 +12,9 @@ public class SetUp {
     public static WebDriver driver;
 
     public void setWebDriver() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Alyne_Soares\\source\\Workspaces\\chromedriver.exe");
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Alyne_Soares\\source\\Workspaces\\geckodriver.exe");
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\Alyne_Soares\\source\\Workspaces\\msedgedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/home/alyne/workspace/chromedriver");
+        System.setProperty("webdriver.gecko.driver", "/home/alyne/workspace/geckodriver");
+        System.setProperty("webdriver.edge.driver", "/home/alyne/workspace/msedgedriver");
 
         String browser = System.getProperty("browser");
         if (browser == null) {
@@ -26,9 +26,13 @@ public class SetUp {
                 chromeOptions.addArguments("start-maximized");
                 driver = new ChromeDriver(chromeOptions);
                 break;
+            case "firefox":
+                driver = new FirefoxDriver();
+                //driver.manage().window().maximize();
+                break;
             case "edge":
                 driver = new EdgeDriver();
-                driver.manage().window().maximize();
+                //driver.manage().window().maximize();
                 break;
             default:
                 throw new IllegalArgumentException("Browser \"" + browser + "\" isn't supported.");

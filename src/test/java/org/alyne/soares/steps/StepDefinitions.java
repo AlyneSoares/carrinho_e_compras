@@ -8,15 +8,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.junit.Assert.*;
-
 import java.io.File;
-import java.io.IOException;
 
 import org.alyne.soares.pageObjects.HomePage;
 import org.apache.commons.io.FileUtils;
 import org.alyne.soares.pageObjects.CartContentPage;
 
 public class StepDefinitions {
+	private final static String SCREENSHOT_PATH = "target/reports/screenshot/";
     private final WebDriver driver;
     private final HomePage homePage;
     private final CartContentPage cartPage;
@@ -81,7 +80,7 @@ public class StepDefinitions {
     public void i_purchase_the_candies() throws Exception {
         TakesScreenshot candyCart =((TakesScreenshot)driver);
         File CandyCart = candyCart.getScreenshotAs(OutputType.FILE);   
-        File DestFile = new File("C:\\Users\\Alyne_Soares\\source\\Workspaces\\prova_4all\\prova_4all\\target\\reports\\candyCart.jpg"); 
+        File DestFile = new File(SCREENSHOT_PATH + "candyCart.jpg"); 
         FileUtils.copyFile(CandyCart, DestFile);
         cartPage.clickCheckOut();
         assertEquals("Pedido realizado com sucesso!", cartPage.modalMessage());
@@ -93,7 +92,7 @@ public class StepDefinitions {
     public void i_confirm_total_value_of_my_cart() throws Exception {
         TakesScreenshot fullCart =((TakesScreenshot)driver);
         File FullCart = fullCart.getScreenshotAs(OutputType.FILE);
-        File DestFile = new File("C:\\Users\\Alyne_Soares\\source\\Workspaces\\prova_4all\\prova_4all\\target\\reports\\fullCart.jpg");
+        File DestFile = new File(SCREENSHOT_PATH + "fullCart.jpg");
         FileUtils.copyFile(FullCart, DestFile);
         final Double productsSum = cartPage.cokeTotalPrice() + cartPage.fantaTotalPrice() + cartPage.aguaTotalPrice()
                 + cartPage.rissoleTotalPrice();

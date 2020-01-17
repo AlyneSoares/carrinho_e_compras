@@ -2,6 +2,7 @@
 
 ### Required:
 You need JAVA JDK with maven, Selenium, Cucumber and WebDrivers (ChromeDriver, GeckoDriver, EdgeDriver) installed.
+- When you import the test to your machine, remember substitute the Driver's path (eg `/home/alyne/workspace/chromedriver`) to your won driver's path
 
 ### Run tests:
 Open 'prova_4all' in your terminal and type: 
@@ -15,8 +16,8 @@ To run 'BuyCandies' feature:
 To run 'BuySnacksAndDrinks' feature:
 `$ RunFeatureBuySnacksAndDrinks.java`
 
-Run parallel tests:
-- Go to Maven Projects > prova_4all > plugins > surefire > surefire:test (click)
+Run parallel tests (I could only do it in VSCode):
+- Open 'Explorer' window, go to Maven Projects > prova_4all > plugins > surefire > surefire:test (click)
 
 
 By default, tests will run on Chrome. 

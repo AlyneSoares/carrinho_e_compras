@@ -21,27 +21,21 @@ public class CartContentPage {
 
 	public void increaseBrigadeiro(int qnt) {
         WebElement increaseBrigadeiroButton = driver.findElement(By.id("add-product-4-qtd"));
-        WebDriverWait wait = new WebDriverWait(driver, 1);            
-        for (int i = 0; i < qnt; i++){
-            wait.until(ExpectedConditions.elementToBeClickable(increaseBrigadeiroButton));   
+        for (int i = 0; i < qnt; i++){ 
             increaseBrigadeiroButton.click();
         }		
 	}
 
     public void increaseRissole(int qnt) {
         WebElement increaseRissoleButton = driver.findElement(By.id("add-product-3-qtd"));
-        WebDriverWait wait = new WebDriverWait(driver, 1); 
         for (int i = 0; i < qnt; i++){
-            wait.until(ExpectedConditions.elementToBeClickable(increaseRissoleButton)); 
             increaseRissoleButton.click();		
         }
     }
     
     public void decreaseRissole(int qnt) {
         WebElement decreaseRissoleButton = driver.findElement(By.id("remove-product-3-qtd"));
-        WebDriverWait wait = new WebDriverWait(driver, 1); 
         for (int i = 0; i < qnt; i++){
-            wait.until(ExpectedConditions.elementToBeClickable(decreaseRissoleButton)); 
             decreaseRissoleButton.click();
         }		
     }
@@ -101,7 +95,6 @@ public class CartContentPage {
         return quantity;
     }
 
-
     public Double aguaTotalPrice() {
         Double price = getAguaPrice();
         Double quantity = getAguaQuantity();    
@@ -121,7 +114,6 @@ public class CartContentPage {
         Double quantity = Double.parseDouble(aguaQuantity);
         return quantity;
     }
-
     
     public Double rissoleTotalPrice() {
         Double price = getRissolePrice();
@@ -149,20 +141,5 @@ public class CartContentPage {
         Double totalPrice = Double.parseDouble(cleanedNumber);
         return totalPrice;
     }
-    
-    // public String brigadeiroPrice() {
-	// 	String brigadeiroPrice = driver.findElement(By.id("product-4-price']")).getText();
-    //     return brigadeiroPrice;
-    // }
-
-    // public String alfajorPrice() {
-	// 	String alfajorPrice = driver.findElement(By.id("product-5-price']")).getText();
-    //     return alfajorPrice;
-    // }
-    
-    // public String brigadeiroQuantity() {
-	// 	String brigadeiroQuantity = driver.findElement(By.id("product-4-qtd']")).getText();
-    //     return brigadeiroQuantity;
-    // }
 
 }
