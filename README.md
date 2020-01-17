@@ -2,14 +2,14 @@
 
 ### Required:
 You need JAVA JDK with maven, Selenium, Cucumber and WebDrivers (ChromeDriver, GeckoDriver, EdgeDriver) installed.
-- When you import the test to your machine, remember substitute the Driver's path (eg `/home/alyne/workspace/chromedriver`) to your won driver's path
+- When you import the test to your machine, remember substitute the Driver's path ( folder /infrastructure - SetUp class: SetWebDriver() line15: `/home/alyne/workspace/chromedriver`) to your won driver's path
 
 ### Run tests:
 Open 'prova_4all' in your terminal and type: 
 Run test: `mvn test`
 it will run all tests (runner: `$ RunCucumberTest.java`)
 
-To run specific tests, go to the Runners and click `Run`
+To run specific tests, go to the Runners:
 To run 'BuyCandies' feature:
 `$ RunFeatureBuyCandies.java`
 
