@@ -28,11 +28,11 @@ public class SetUp {
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
-                //driver.manage().window().maximize();
+                driver.manage().window().maximize();
                 break;
             case "edge":
                 driver = new EdgeDriver();
-                //driver.manage().window().maximize();
+                driver.manage().window().maximize();
                 break;
             default:
                 throw new IllegalArgumentException("Browser \"" + browser + "\" isn't supported.");
