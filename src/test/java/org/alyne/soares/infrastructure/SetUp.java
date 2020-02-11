@@ -12,7 +12,7 @@ public class SetUp {
     public static WebDriver driver;
 
     public void setWebDriver() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "/home/alyne/workspace/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
         System.setProperty("webdriver.gecko.driver", "/home/alyne/workspace/geckodriver");
         System.setProperty("webdriver.edge.driver", "/home/alyne/workspace/msedgedriver");
 
